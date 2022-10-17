@@ -8,6 +8,14 @@ export default {
     children: "lorem ipsum",
     size: "md",
   },
+  argTypes: {
+    size: {
+      options: ["sm", "md", "lg"],
+      control: {
+        type: "inline-radio",
+      },
+    },
+  },
 } as Meta<ITextProps>;
 
 export const Default: StoryObj<ITextProps> = {};
@@ -21,5 +29,19 @@ export const Small: StoryObj<ITextProps> = {
 export const Large: StoryObj<ITextProps> = {
   args: {
     size: "lg",
+  },
+};
+
+export const CustomComponent: StoryObj<ITextProps> = {
+  args: {
+    asChild: true,
+    children: <p> texto de paragrafo</p>,
+  },
+  argTypes: {
+    children: {
+      table: {
+        disable: true,
+      },
+    },
   },
 };
